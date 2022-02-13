@@ -1,0 +1,44 @@
+body {
+  @apply relative bg-c-background;
+}
+
+#app {
+  @apply relative 
+  w-full w-max-1280px h-min-100vh 
+  text-base 
+  px-4 
+  mx-auto 
+  text-c-dark-900;
+}
+
+// ref: https://stackoverflow.com/questions/3790935/can-i-hide-the-html5-number-input-s-spin-box
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
+// for scrollbar
+.scroll-wrap {
+  @apply scrollbar-thin 
+  scrollbar-thumb-rounded
+  scrollbar-thumb-c-brown-500 scrollbar-track-light-700
+  w-full max-h-[calc(100vh-72px)]
+  overflow-y-scroll
+  overflow-x-hidden;
+}
+
+.scroll-wrap-left {
+  @extend .scroll-wrap;
+  @apply max-h-[calc(100vh-170px)];
+}
+
+@media (max-width: 450px) {
+  #app {
+    @apply text-base;
+  }
+}
