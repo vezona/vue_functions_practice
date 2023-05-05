@@ -6,6 +6,16 @@ import pinia from '/src/views/pinia.vue';
 import exportJS from '/src/views/exportJS.vue';
 import toggleList from '/src/views/toggleList.vue';
 import regex from '/src/views/regex.vue';
+import floatAndPercent from '/src/views/floatAndPercent.vue';
+import routerSameComponent from '/src/views/routerSameComponent.vue';
+import routerEdit from '/src/views/routerEdit.vue';
+import uploadImg from '/src/views/uploadImg.vue';
+import apiUploadImg from '/src/views/apiUploadImg.vue'
+import directiveValidate from '/src/views/directiveValidate.vue';
+import regexp from '/src/views/regexp.vue'
+import dragTransition from '/src/views/dragTransition.vue'
+import directive from '/src/views/directive.vue'
+import cancalToken from '/src/views/cancalToken.vue'
 
 export default [
   {
@@ -32,7 +42,6 @@ export default [
     name: 'beforeunload',
     component: beforeunload,
   },
-  
   {
     // pinia
     path: '/pinia',
@@ -56,5 +65,74 @@ export default [
     path: '/regex',
     name: 'regex',
     component: regex,
+  },
+  {
+    // Math 百分比、小數點互換
+    path: '/floatAndPercent',
+    name: 'floatAndPercent',
+    component: floatAndPercent,
+  },
+  {
+    path: '/routerSameComponent',
+    name: 'routerSameComponent',
+    component:routerSameComponent,
+    children: [
+    {
+      // 可匯入
+      path: 'path1',
+      name: 'path1',
+      component: routerEdit,
+    },
+    {
+      // 可匯入
+      path: 'path2',
+      name: 'path2',
+      component: routerEdit,
+    },
+      
+    ]
+  },
+  {
+  // 上傳圖片
+  path: '/uploadImg',
+  name: 'uploadImg',
+  component: uploadImg,
+  },
+  {
+    // API 上傳圖片
+    path: '/apiUploadImg',
+    name: 'apiUploadImg',
+    component: apiUploadImg,
+    },
+  {
+  // directive 驗證
+    path: '/directiveValidate',
+    name: 'directiveValidate',
+    component: directiveValidate,
+  },
+  {
+    // regexp 驗證與computed value 
+      path: '/regexp',
+      name: 'regexp',
+      component: regexp,
+  },
+  {
+    path: '/dragTransition',
+    name: 'dragTransition',
+    component: dragTransition,
+  },
+  {
+    // 驗證與v-directive、computed value
+    path: '/directive',
+    name: 'directive',
+    component: directive,
+  },
+  {
+    // 取消發送API
+    path: '/cancalToken',
+    name: 'cancalToken',
+    component: cancalToken,
   }
+  
+  
 ];

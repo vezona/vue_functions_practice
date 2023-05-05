@@ -16,5 +16,18 @@ export default defineConfig({
       })
      }),
      Icons()
-    ]
+  ],
+  // server: {
+  //   https: true,
+  //   proxy: {
+  //     '/api': {
+  //       target: 'https://007-t.houseprice.tw/api/',
+  //       changeOrigin: true,
+  //       secure: false,
+  //       ws: true,
+  //       rewrite: path => path.replace(/^\/api/, ''),
+  //     },
+  //   }
+  // },
+  
 })
