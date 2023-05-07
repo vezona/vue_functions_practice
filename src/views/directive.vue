@@ -1,4 +1,5 @@
 <template>
+<!-- 
   <p>Computed 物件</p>
   <div>
     <div class="mb-3">
@@ -54,4 +55,62 @@ export default {
 };
 </script>
 
-<style></style>
+<style></style> -->
+  <div>directive</div>
+
+  <input type="checkbox" id="showEl1" v-model="isShown" class="mx-2">
+  <label for="showEl1" class="cursor-pointer">show element 1: {{isShown}}</label>
+
+  <div class="h-50vh" v-bindElement="'el_1'" v-if="isShown">element 1</div>
+  <div class="h-80vh">element 2</div>
+  <div class="h-50vh">element 3</div>
+
+  <button type="button" class="border border-black p-4"
+  @click="scroll">Click</button>
+</template>
+
+<script>
+import {ref, reactive, toRefs, onMounted, watch} from 'vue';
+import {scrollToHere, scroll, updateElement} from '/src/compose/directive.js'
+
+const bindElement = {
+  mounted: (el, binding, vnode) => {
+      console.log(el, binding, vnode);
+      console.log(vnode);
+  }
+}
+
+export default {
+    directives:{
+        bindElement
+
+    },
+    setup(){
+        const isShown = ref(false)
+        const elements = reactive({
+            el_1: null,
+            el_2: null,
+            el_3: null
+        })
+
+        // watch(elements, ()=>{
+        //     Object.entries(elements).forEach(([key, value]) => {
+        //         updateElement(key, value);
+        //     });
+
+        // }, {deep:true})
+
+
+        return{
+            isShown,
+            scroll
+
+        }
+    }
+
+}
+</script>
+
+<style>
+
+</style>
