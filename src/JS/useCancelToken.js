@@ -1,4 +1,4 @@
-import {InventoryCaseAPIs} from "/src/JS/cancelTokenApis.js"
+import { InventoryCaseAPIs } from "/src/JS/cancelTokenApis.js"
 
 let cancelTokenSource = null;
 export const sendRequest = async (apiFunc) => {
@@ -7,7 +7,7 @@ export const sendRequest = async (apiFunc) => {
   }
   const controller = new AbortController();
   cancelTokenSource = controller;
-  await apiFunc({
+  return await apiFunc({
     keyword: "test",
     page: 1,
     isAllowedRepublish: true,
@@ -22,14 +22,14 @@ export const cancelRequest = () => {
   }
 };
 
-export const sendRequestA = () => {
-  sendRequest(InventoryCaseAPIs.getPublicList);
+export const sendRequestA = async () => {
+  return sendRequest(InventoryCaseAPIs.getPublicList);
 };
 
 export const sendRequestB = () => {
-  sendRequest(InventoryCaseAPIs.getPrivateList);
+  return sendRequest(InventoryCaseAPIs.getPrivateList);
 };
 
 export const sendRequestC = () => {
-  sendRequest(InventoryCaseAPIs.getCloseList);
+  return  sendRequest(InventoryCaseAPIs.getCloseList);
 };
