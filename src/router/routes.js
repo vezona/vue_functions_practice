@@ -18,6 +18,8 @@ import directive from "/src/views/directive.vue";
 import cancalToken from "/src/views/cancalToken.vue";
 import detectScroll from "/src/views/detectScroll.vue";
 import eventListener from "/src/views/eventListener.vue";
+import routerAndComputed from "/src/views/routerAndComputed.vue"
+import dropdownSelect from "/src/views/dropdownSelect.vue"
 
 export default [
   {
@@ -139,5 +141,19 @@ export default [
     name: "cancalToken",
     component: cancalToken,
   },
-  { path: "/eventListener", name: "eventListener", component: eventListener },
+  {
+    path: "/eventListener",
+    name: "eventListener",
+    component: eventListener
+  },
+  {
+    path: "/routerAndComputed",
+    name: "routerAndComputed",
+    component: routerAndComputed
+  },
+  {
+    path: "/dropdownSelect",
+    name: "dropdownSelect",
+    component: dropdownSelect
+  }
 ];
